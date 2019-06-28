@@ -1,0 +1,50 @@
+<div *ngIf="navigationValid; else navNotValid">
+    <div class="views-element-container" id="block-views-block-carousal-block-1">
+        <!--<app-carousal [data]="carousal" (onNavigationClicked)="onNavigationClicked($event)"></app-carousal>-->
+        <app-carousal *ngIf="carousal!= undefined" [data]="carousal"></app-carousal>
+    </div>
+    <div [ngClass]="(nothingLoading == false )? 'min_page_maincontent_height':' min_page_height '" class="page-content">
+        <app-pagecategory [catPath]="categoryPath" [catType]="categoryType"></app-pagecategory>
+    </div>
+</div>
+<!--<div class="loading" [hidden]="nothingLoading == true">Loading&#8230;</div>--->
+<ng-template #navNotValid>
+    <div class="container-fluid">
+        <div>
+            <div id="block-dollywood-content" class="">
+
+
+                <div class="views-element-container">
+                    <div class="container-fluid page_404">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="error-template">
+                                    <h1>
+                                        Oops!
+                                    </h1>
+                                    <h2>
+                                        404 Not Found
+                                    </h2>
+                                    <div class="error-details">
+                                        Sorry, an error has occured, Requested page not found!
+                                    </div>
+                                    <div class="error-actions">
+                                        <a href="/" class="btn btn-default btn-lg">Take Me Home </a>
+                                        <!--   <a href="#" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Contact Support </a>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <style>
+
+
+                    </style>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</ng-template>

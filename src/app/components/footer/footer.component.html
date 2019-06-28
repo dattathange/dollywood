@@ -1,0 +1,230 @@
+
+
+<div class="clearfix"></div>
+
+
+<div class="d_footer">
+    <div class="container">
+
+    <ul class="footer_ul">
+        <!-- <li class="">&nbsp;</li> -->
+        <li class="footer_social_li"><a href="https://www.facebook.com/Dollywood-Play-727257140761346/?ref=br_rs" target="_blank">
+                <span class="fa-stack fa-lg ">
+                    <i class="fa fa-facebook fa-stack-1x"></i>
+                </span>
+            </a>
+        </li>
+        <li class="footer_social_li"><a href="https://twitter.com/dollywood_play" target="_blank">
+                <span class="fa-stack fa-lg ">
+                    <i class="fa fa-twitter fa-stack-1x"></i>
+                </span>
+            </a></li>
+            
+        <!--    
+        <li class="footer_social_li">
+            <a href="" target="_blank">
+                <span class="fa-stack fa-lg ">
+                    <i class="fa fa-youtube fa-stack-1x"></i>
+                </span>
+            </a>
+        </li>
+        -->
+        <li class="footer_social_li"><a href="https://instagram.com/dollywood_play?utm_source=ig_profile_share&igshid=lyo2mwy27u85" target="_blank">
+                <span class="fa-stack fa-lg ">
+                    <i class="fa fa fa-instagram fa-stack-1x"></i>
+                </span>
+            </a>
+        </li>
+    </ul>
+        <div class="col-md-6 col-sm-6 col-xs-6">
+            <!-- <div class="col-sm-4  col-md-4 col-lg-4">
+                <ul class="footer_ul mob_mb10">
+                    <li><b>Company</b></li>
+                    <li class="hidden-xs">&nbsp;</li>
+                    <li><a routerLink='footer/about'>About Us</a></li>
+                </ul>
+            </div>
+            <div class=" col-sm-4 col-md-4 col-lg-4">
+                <ul class="footer_ul mob_mb10">
+                    <li><b>Legal</b></li>
+                    <li class="hidden-xs">&nbsp;</li>
+                    <li><a routerLink='footer/privacy'>Privacy Policy</a></li>
+                    <li><a routerLink='footer/terms'>Terms of Use</a></li>
+                </ul>
+
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+                <ul class="footer_ul mob_mb10">
+                    <li><b>Information</b></li>
+                    <li class="hidden-xs">&nbsp;</li>
+                    <li><a routerLink='footer/disclaimer'>Disclaimer</a></li>
+                </ul>
+
+            </div> -->
+            <div class="footer-links border-right-footer text-right">
+                <ul>
+                    <li>
+                        <a routerLink='footer/about'>About Us</a>
+                    </li>
+                    <li>
+                        <a routerLink='footer/privacy'>Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a routerLink='footer/terms'>Terms of Use</a>
+                    </li>
+                    <li>
+                        <a routerLink='footer/disclaimer'>Disclaimer</a>                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
+            <div class="footer-right-content text-left">
+                <img alt="Home" class="logo" src="../../../../assets/images/Dollywood-Play-logo.png" width="200px">
+                <div class="clearfix" style="height:10px;"></div>
+
+                <span>Just once click and find your favorite action movies & Clips on all devices : android, ios, web</span>
+                <div class="clearfix" style="height:10px;"></div>
+
+                <ul class="footer_ul play-store-links">
+                    <li class=""></li>
+                    <li class="footer_li">
+                        <a target="_blank" href="https://play.google.com/store/apps/details?id=com.wamindia.dollywoodplay">
+                            <i class="fa fa-android" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li class="footer_li ">
+                        <a href="https://itunes.apple.com/us/app/dollywood-play/id1266574888?mt=8" target="_blank">
+                            <i class="fa fa-apple" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <div class="m_textcenter copyright_text" style="">
+
+        © Dollywood Play {{currentYear}} All Rights Reserved
+
+    </div>
+
+</div>
+
+
+
+<div *ngIf="disClaimerFlag==''" style="background:rgba(0,0,0,0.7);position:fixed;bottom:0px;width:100%;padding:10px 0px;z-index:99999999;color:#fff;">
+    <div class="col-md-10" style="float:left;margin-top:10px;">
+        This website uses cookies to ensure you get the best experience on our website. <a href="footer/privacy" style="color:#FF3F00;">Learn More</a>
+    </div>
+    <div class="col-md-2">
+        <button class="login_btn" id="login_submit" type="button" (click)="setcookie()" style="float:right">Got it</button>
+    </div>
+</div>
+
+<script>
+    /*======FIXED HEADER ON SCROLL======*/
+    $(window).on("scroll", function () {
+        if ($(window).scrollTop() > 50) {
+            $(".navbar").addClass("fixed");
+        } else {
+            //remove the background property so it comes transparent again (defined in your css)
+            $(".navbar").removeClass("fixed");
+        }
+    });
+    /*======VIDEO GRID HOVER EFFECT======*/
+
+
+    /*======SEARCH ICON======*/
+    var state = false;
+    if ($(window).width() > 767) {
+        $(document).ready(function () {
+            $(".search_head_icon").click(function (e) {
+
+                $(".body_overlay").css("display", "block");
+                $(".attr-nav .search").addClass("rel_index");
+                if (!state) {
+                    $(".form-search").animate({"width": "360px"});
+                    $(".form-search").css("padding-left", "10px");
+                    state = true;
+                } else {
+                    $(".body_overlay").css("display", "none");
+                    $(".attr-nav .search").removeClass("rel_index");
+                    $(".form-search").animate({"width": "0px"});
+                    $(".form-search").css("padding-left", "0px");
+                    $("#autoSearchDrop").hide();
+                    state = false;
+                }
+                //e.stopPropagation();
+            });
+            /*$(document).click(function(){
+             $("#autoSearchDrop").hide();
+             $(".form-search").animate({"width":"0px"});
+             $(".form-search").css("padding-left","0px");
+             $(".body_overlay").css("display","none");
+             $(".attr-nav .search").removeClass("rel_index");
+             });*/
+
+        });
+    }
+
+    if ($(window).width() < 767) {
+        $(document).ready(function () {
+            $(".search_head_icon").click(function () {
+                $(".body_overlay").css("display", "block");
+                $(".attr-nav .search").addClass("rel_index");
+                if (!state) {
+                    $(".form-search").animate({"width": "230px"});
+                    $(".form-search").css("padding-left", "10px");
+                    state = true;
+                } else {
+                    $(".body_overlay").css("display", "none");
+                    $(".attr-nav .search").removeClass("rel_index");
+                    $(".form-search").animate({"width": "0px"});
+                    $(".form-search").css("padding-left", "0px");
+                    state = false;
+                }
+            });
+        });
+    }
+
+    /*======USER MENU TOGGLE======*/
+    $(document).ready(function () {
+        $('.user_drop').click(function (event) {
+            event.stopPropagation();
+            $('.showme').toggle();
+        });
+
+        $(document).click(function () {
+            $('.showme').hide();
+        });
+    });
+
+    /*======FIXED HEADER======*/
+    $(document).on('scroll', function (e) {
+        var top = $(window).scrollTop();
+
+        topFixed = 500;
+        if ($(window).width() < 500) {
+            topFixed = 300;
+        }
+
+        if (top > topFixed) {
+            $('.fixedHeader').addClass('fixHim');
+            $('.magicLogo').css('left', '10px');
+            $('.free_trial').removeClass('hidden');
+        }
+        if (top < topFixed) {
+            $('.fixedHeader').removeClass('fixHim');
+            $('.magicLogo').css('left', '-100px');
+            $('.free_trial').addClass('hidden');
+        }
+
+    })
+
+</script>
+
+
+
+
+

@@ -1,0 +1,150 @@
+<div class="navbar-header">
+    <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+        <i class="fa fa-bars"></i>
+    </button> -->
+    <a class="navbar-brand" routerLink="/" title="Home" rel="home">
+        <img src="../../../../assets/images/Dollywood-Play-logo.png" alt="Home" class="logo">
+    </a>
+</div>
+
+    <div class="collapse navbar-collapse menu" id="navbar-menu">
+
+        <ul class="nav navbar-nav" data-in="fadeInDown" data-out="fadeOutUp" id="menu_ul">
+
+            <li *ngFor="let menuItem of navData">
+                {{menuItem.is_header}}
+                <a (click)="navigateTo(menuItem.alias)" [ngStyle]="menuItem.extraStyle">
+                    <span *ngFor="let ornt of menuItem.orientation">
+                        {{ornt.title}}
+                    </span>
+                </a>
+                <div class="drp navDrp" style="display: none">
+                    <span></span>
+                    <ul>
+                        <li class="bb active"><a [routerLink]="menuItem.alias">Full Movies</a></li>
+                        <li class="bb"><a [routerLink]="menuItem.alias">Mini Movies</a></li>
+                        <li><a [routerLink]="menuItem.alias">Movie Promo</a></li>
+                    </ul>
+                </div>
+                <!-- <div class="drp navDrp" style="display: none">
+                    <span></span>
+                    <ul>
+                        <li class="bb active"><a [routerLink]="menuItem.alias">Adventyre Fantasy</a></li>
+                        <li class="bb"><a [routerLink]="menuItem.alias">Action</a></li>
+                        <li><a [routerLink]="menuItem.alias">Thriller</a></li>
+                        <li><a [routerLink]="menuItem.alias">Drama</a></li>
+                    </ul>
+                    <ul>
+                        <li class="bb active"><a [routerLink]="menuItem.alias">Comedy</a></li>
+                        <li class="bb"><a [routerLink]="menuItem.alias">Horror</a></li>
+                        <li><a [routerLink]="menuItem.alias">Love Romance</a></li>
+                        <li><a [routerLink]="menuItem.alias"><b>Item Songs</b></a></li>
+                    </ul>
+                    <ul>
+                        <li class="bb active"><a [routerLink]="menuItem.alias">18+</a></li>
+                        <li class="bb"><a [routerLink]="menuItem.alias">New Movies</a></li>
+                    </ul>
+                </div> -->
+                <div class="drp navDrp categories" style="display: none">
+                    <span></span>
+                    <div class="mr50">
+                        <div class="bb active"><a [routerLink]="menuItem.alias">Adventure Fantasy</a></div>
+                        <div class="bb"><a [routerLink]="menuItem.alias">Action</a></div>
+                        <div class="bb"><a [routerLink]="menuItem.alias">Thriller</a></div>
+                        <div><a [routerLink]="menuItem.alias">Drama</a></div>
+                    </div>
+                    <div class="mr50">
+                        <div class="bb active"><a [routerLink]="menuItem.alias">Comedy</a></div>
+                        <div class="bb"><a [routerLink]="menuItem.alias">Horror</a></div>
+                        <div class="bb"><a [routerLink]="menuItem.alias">Love Romance</a></div>
+                        <div><a [routerLink]="menuItem.alias">Drama</a></div>
+                    </div>
+                    <div class="rowthree">
+                        <div class="bb active"><a [routerLink]="menuItem.alias">18+</a></div>
+                        <div class="bb"><a [routerLink]="menuItem.alias">New Movies</a></div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+
+    </div>
+    <div class="clearfix"></div>
+
+
+    <div class="search-block-form" data-drupal-selector="search-block-form" id="block-dollywood-search" role="search">
+
+
+        <form action="/search/node" method="get" id="search-block-form" accept-charset="UTF-8">
+            <div class="js-form-item form-item js-form-type-search form-item-keys js-form-item-keys form-no-label">
+                <!--<label for="edit-keys" class="visually-hidden">Search</label>-->
+
+                <!-- Start Atribute Navigation -->
+                <div class="attr-nav">
+                    <ul>
+                        <!-- <li class="">
+                            <a routerLink="/genres" style="color: #b1b1b1;"> -->
+                                <!--<img src="./assets/images/playlist.png" class="img-responsive genre_icon" style="display: inline-block">-->
+                                <!-- <img src="./assets/images/genre_icon.png" class="img-responsive genre_icon" style="display: inline-block"> -->
+                            <!-- </a>
+                        </li> -->
+                        <li class="search search-icon" id="search-box">
+                            <div (clickOutside)="onClickedOutsideSearchBlock($event)" class="pos_rel">
+                                <span class="search-icon-inside">
+                                    <i class="fa fa-search" aria-hidden="true" style="color: #E95F05;padding:9px 2px 4px 9px !important;"></i>
+                                </span>
+                                
+                                <input [formControl]="searchTerm" [(ngModel)]="searchQuery" (focus)="getStoredSearchResults()" (keyup.enter)="fireSearch()" title="Enter the terms you wish to search for." data-drupal-selector="edit-keys" data-msg-maxlength="Search field has a maximum length of 128." id="edit-keys" name="keys" value="" size="15" maxlength="128" class="form-search" autocomplete="off" type="search" placeholder="Search...">
+                                
+                                <!--<input [formControl]="searchTerm" [(ngModel)]="searchQuery" (keyup.enter)="fireSearch()" title="Enter the terms you wish to search for." data-drupal-selector="edit-keys" data-msg-maxlength="Search field has a maximum length of 128." id="edit-keys" name="keys" value="" size="15" maxlength="128" class="form-search" autocomplete="off" type="search">-->
+                                <div id="autoSearchDrop" class="form-search-auto" *ngIf="searchResults.length > 0">
+                                    <div id="noResults" *ngIf="searchResults.length == undefined || searchResults.length == 0">No Results Found</div>
+                                    <div id="searchSuggest" *ngIf="searchResults.length != undefined || searchResults.length > 0">
+                                            <ul>
+                                                <li class="" *ngFor="let item of searchResults">
+                                                    <a  (click)="itemClicked(item)">
+                                                        <img src="{{item.orientation[0].image}}">
+                                                        <span>{{item.orientation[0].title}}</span>
+                                                    </a>
+                                                </li>
+                                            </ul>           
+                                    </div>
+                                    <a id="viewMore" (click)="fireSearch()" class="text-center more_result">More Results</a>
+                                </div>
+                            </div>
+                            <a href="/" style="display:none">
+                                <img src="./assets/images/search.png" class="img-responsive search_head_icon">
+                            </a>
+                        </li>
+                        <!--<li class="">
+                            <a routerLink="/genres" style="color: #b1b1b1;">
+                                <img src="./assets/images/playlist.png" class="img-responsive genre_icon" style="display: inline-block">
+                            </a>
+                        </li>-->
+                    </ul>
+                </div>
+<!--
+                    <ul class="header-social hidden-xs">
+                        <li><a href="https://play.google.com/store/apps/details?id=com.wamindia.dollywoodplay&hl=en"><i class="fa fa-android"></i></a></li>
+                        <li><a href="https://itunes.apple.com/in/app/dollywood-play/id1266574888?mt=8"><i class="fa fa-apple"></i></a></li>
+                    </ul>
+-->
+                <div class="body_overlay" style="display: none"></div>
+                <!-- End Atribute Navigation -->
+
+
+
+
+            </div>
+            <div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions">
+                <input data-drupal-selector="edit-submit" id="edit-submit" value="Search" class="button js-form-submit form-submit" style="display: none;" type="submit">
+            </div>
+
+        </form>
+
+    </div>
+    <div class="views-element-container" id="block-views-block-video-group-block-1">
+
+
+
+    </div>

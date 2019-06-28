@@ -1,0 +1,321 @@
+
+
+
+<div class="clearfix"></div>
+<div class="parentClass" style="overflow:hidden">
+
+    <div class="clearfix"></div>
+    <div class="breadcrumb-custom detail-breadcrumb hidden">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item ng-scope"><a routerLink="" class="ng-binding">Home</a></li><!-- end ngIf: category_name == 'Home' -->
+            <li class="breadcrumb-item active"><a href="javascript:void(0);" class="ng-binding">{{videoTitle}}</a></li>
+        </ol>
+    </div>
+    <div class="mainPlayer {{ playerVisible}}">
+        <div class="container rel_pos">
+            <!-- <div class="m_desc more vidTitle pull-left" style="font-size:25px;">{{videoTitle}}</div>
+            <div class="m_desc more vidTitle pull-right video_back" (click)="hidePlayer()">
+                BACK
+            </div> -->
+
+            <!--<br />
+            <div id="rmpPlayer">
+
+            </div>-->
+
+
+            <div class="bitmovin_container">
+                <div id="bitmovin-player">
+
+                </div>
+
+                <div class="play_forword_backward_button"  >
+                    <span class="seek_backword_icon" (click)="seekPlayer(-30)"><i class="fa fa-backward" title="backward"></i></span>
+                    <span class="seek_forword_icon" (click)="seekPlayer(+30)"> <i class="fa fa-forward" title="forward"></i></span>
+                </div>
+            </div>
+
+            <div class="container video-info-block" style="margin-top:20px;padding-left: 0px;padding-right:0px;">
+                <!-- <div class="watchnowbutton ">
+                    ADD TO FAVOURITES
+                </div> -->
+                <div class="video-title">{{videoTitle}}</div>
+                <div class="video-detail statistic">
+                    <div class="likes"><i class="fa fa-thumbs-up" aria-hidden="true"></i>678</div>
+                    <div class="views"><i class="fa fa-eye" aria-hidden="true"></i>678</div>
+                    <button class="btn watch-list-btn"><i class="fa fa-plus" aria-hidden="true"></i><span>Wish List</span></button>
+                </div>
+                <div class="video-info">
+                    <div class="release-info">
+                        <span class="title">DAYAVAN</span>
+                        <span class="video-year">1988</span>
+                        <span class="video-language">Hindi</span>
+                    </div>
+                </div>
+                <div class="singers"><span>Singers: </span> <span>Jolly Mukherjee, Sapna Mukherjee</span></div>
+                <div class="actors"><span>Actors: </span> <span>Vinod Khanna , Madhuri Dixit , Feroz Khan , Aditya Pancholi , Anupam Kher , Amrish Puri</span></div>
+                <div class="detail">
+                    <div class="text">
+                        Detail
+                    </div>
+                    <div class="description">
+                        <!-- Play Full Chahe Meri Jaan Tu Le Le Video Song from Dayavan. Chahe Meri Jaan Tu Le Le song sung by Jolly Mukherjee , Sapna Mukherjee. The album Dayavan was released on Jun (1988). Lyrics of Dayavan song Chahe Meri Jaan Tu Le Le are written by Indeevar. Download Chahe Meri Jaan Tu Le Le full video MP4 from Hungama. <br /> View more at: <a href="https://www.hungama.com/video/chahe-meri-jaan-tu-le-le/28424803/" target="_blank">https://www.hungama.com/video/chahe-meri-jaan-tu-le-le/28424803/</a> -->
+                        {{videoDescription}}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <!-- <div class="col-md-12 vidbanner {{ hidecontent }}" [style.background-image]="'url(' + posterImage + ')'" >
+         <div class="container">
+
+            <div class="col-md-7 col-lg-7">
+                <div class="innerpage-title1" style="color:#000">
+                    <div class="inner_mname moreText" style="color:#000">{{videoTitle}} </div>
+
+                    <div class="clearfix"></div>
+                    <div *ngFor="let gn of genreList" class="assetgenrelist">
+                        <a class="black_color" routerLink="/genre/{{gn.title}}/list/{{gn.path}}">
+                            {{gn.displayTitle}}
+                        </a>
+                    </div>
+                    <div class="clearfix"></div>
+
+                    Duration: {{duration}} hrs <br />
+                    <div class="col-md-8" style="padding-left:0px;margin-top:5px;">
+                        {{ videoDescription }}
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="watchnowbutton" style="margin-top:15px;" (click)="showPlayer()">
+                        WATCH NOW
+                    </div>
+                    <div class="watchnowbutton" style="margin-top:15px;" (click)="addToFav()" *ngIf="isUserLoggedIn && !assetAdded">
+                        ADD TO FAVOURITE
+                    </div>
+                    <div class="watchnowbutton" style="margin-top:15px;"  *ngIf="assetAdded" (click)="removeFromFav()">
+                        REMOVE FROM FAVOURITE
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+    </div> -->
+    <div class="clearfix"></div>
+
+
+    <div class="container" style="margin-top:20px;" *ngIf="relatedVideosList.length >= 1">
+        <div class="row title-bar" *ngIf="relatedVideosList.length > 0">
+            <div class="tbl-row">
+                <div class="title">
+                    <div class="shows-title mayuri gotham-b" style="float:left">
+                        Related Video 
+                    </div>
+                </div>
+                <div class="right-border" *ngIf="relatedVideosList.length > 6">
+                    <div class="see_all gotham-b" style="margin: 4px 0px 0px 0px;">
+                        <div class="arrow"></div>
+                        <div class="arrow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div *ngIf="relatedVideosList.length >= 1" class="owl-carousel owl-theme home-category-carousel customOWL owl-loaded owl-drag inner-carousel">
+        <owl-carousel
+            [options]="carousalOptions"
+            [items]="relatedVideosList"
+            [carouselClasses]="['owl-theme', 'home-category-carousel' , 'sliding']">
+            <div  class="owl-item active" *ngFor="let asset of relatedVideosList;let i = index">
+                <div class="col-sm-3 col-md-3 col-lg-3 margin30" style="padding:2px;">
+                  <a routerLink="/video/{{asset.title}}/{{asset.path}}">
+                    <div class="vidWrapper">
+                        <img class="img_vertical" alt="" width="100%" src="{{asset.image}}" src-fallback="{{ defaultImgSuggested }}" />
+
+                        <div class="content">
+                            <div class="play-btn">
+                                <i class="fa fa-caret-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+                <div class="corousel-item-footer-wrapper">
+                    <div class="corousel-item-footer">
+                        <h5><b>{{asset.title}}</b></h5>
+                        <div class="statistic">
+                            <div class="duration">{{asset.duration}} hrs</div>
+                            <div class="likes-views">
+                                <div class="likes"><i class="fa fa-thumbs-up"></i>678</div>
+                                <div class="views"><i class="fa fa-eye"></i>678</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+            </div>
+        </owl-carousel>
+        <!-- <div class="row">
+                <div class="row__inner" id="slide_wrapper">
+                <div class="tile" *ngFor="let item of relatedVideosList">
+                    <div class="tile__media">
+                    <a routerLink="/video/{{item.title}}"><img class="tile__img" src="{{item.image}}" alt=""  /></a>
+                    </div>
+                    <div class="tile__details">
+                    <div class="tile__title">
+                        Top Gear
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    
+    <div class="container" style="margin-top:20px;" *ngIf="suggestedVideosList.length >= 1">
+        <div class="row title-bar" *ngIf="suggestedVideosList.length > 0">
+            <div class="tbl-row">
+                <div class="title">
+                    <div class="shows-title mayuri gotham-b" style="float:left">
+                        Suggested Video 
+                    </div>
+                </div>
+                <div class="right-border" *ngIf="suggestedVideosList.length > 6">
+                    <div class="see_all gotham-b" style="margin: 4px 0px 0px 0px;">
+                        <div class="arrow"></div>
+                        <div class="arrow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <div *ngIf="suggestedVideosList.length >= 1" class="owl-carousel owl-theme home-category-carousel customOWL owl-loaded owl-drag inner-carousel">
+        <owl-carousel
+            [options]="carousalOptions"
+            [items]="suggestedVideosList"
+            [carouselClasses]="['owl-theme', 'home-category-carousel' , 'sliding']">
+            <div  class="owl-item active" *ngFor="let asset of suggestedVideosList;let i = index">
+                <div class="col-sm-3 col-md-3 col-lg-3 margin30" style="padding:2px;">
+                  <a routerLink="/video/{{asset.title}}/{{asset.path}}">
+                    <div class="vidWrapper">
+                        <!--<div class="vidDuration">{{asset.duration}}</div>-->
+                        <img class="img_vertical" alt="" width="100%" src="{{asset.image}}" src-fallback="{{ defaultImgSuggested }}">
+
+                        <div class="content">
+                            <!-- <h1 >{{asset.displayTitle}} </h1>
+                            <p class="js_assdeselip assdeselip" style="display: none;">
+                                {{asset.desc}}
+                            </p>
+                            <span class="duration">Duration: {{asset.duration}} hrs </span>
+                            <div class="watchnowbutton " style="margin-top:5px;">
+                                WATCH NOW
+                            </div> -->
+                            <div class="play-btn">
+                                <i class="fa fa-caret-right" aria-hidden="true"></i>
+                            </div>
+                        </div>
+
+                    </div>
+                </a>
+
+                <div class="corousel-item-footer-wrapper">
+                    <div class="corousel-item-footer">
+                        <h5><b>{{asset.title}}</b></h5>
+                        <div class="statistic">
+                            <div class="duration">{{asset.duration}} hrs</div>
+                            <div class="likes-views">
+                                <div class="likes"><i class="fa fa-thumbs-up"></i>678</div>
+                                <div class="views"><i class="fa fa-eye"></i>678</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </owl-carousel>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="clearfix"></div>
+
+    <!-- <div class="container" *ngIf="castCrewDataFetched == true" style="margin-top:20px;">
+         <ul class="tabs__tab-bar">
+            <li [class]="commentsClass" (click)="tabClicked('comments')">
+                Comments
+            </li>
+            <li [class]="castClass" (click)="tabClicked('cast')">
+                Cast and crew
+            </li>
+            <li [class]="reviewsClass" (click)="tabClicked('reviews')">
+                Reviews
+            </li>
+        </ul>
+        <div *ngIf="activeTab == 'cast'">
+            <div *ngIf="castCrewDetails == undefined || castCrewDetails.length == 0" style="margin-top:12px;">
+                No content available
+        </div>
+        <div class="row" >
+            <div class="col-sm-6 col-md-6" >
+                <div class="movie-content1 graybackground" *ngFor="let item of castCrewDetails">
+                     <div class="col-xs-5 col-md-2 nopadding" *ngIf="item.name != undefined">
+                     <img src="{{item.image != null && item.image != ''? item.image : './assets/images/favicon.png'}}" />
+                        <p>{{item.character.first_name + ' ' + (item.character.last_name == null ? '' : item.character.last_name) }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="disqus_thread" [hidden]="activeTab != 'comments'">
+        <disqus [identifier]="_assetID"></disqus>
+    </div>
+    <div *ngIf="activeTab == 'reviews'">
+        <div *ngIf="reviews == undefined || reviews.length == 0" style="margin-top:12px;">
+            No content available
+    </div>
+    <div *ngFor="let item of reviews" class="col-sm-12 col-md-12">
+        <div class=" col-md-12 movie-content1 graybackground review_p">
+            <div class="col-xs-1 col-md-1 nopadding">
+
+                <img src="{{item.image != null && item.image != ''? item.image : './assets/images/favicon.png'}}" width="100%">
+            </div>
+            <div class="col-md-11">
+                <p class="f-child " style="margin-top: 0px;">
+                    {{item.first_name + ' ' + (item.last_name != null? item.last_name : '')}}
+                </p>
+                <p>{{item.description == null ? '' : item.description}}</p>
+                <p>
+                    Reviewed by :  {{item.reviewed_by}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div> -->
+<div class="clearfix"></div>
+
+</div>
+
+
+
+
+
+
+<p class="toasterL" id="added_toaster" [@visibilityChanged]="assetAddedVisibility">Asset is added to favourites</p>
+<p class="toasterL" id="login_toaster" [@visibilityChanged]="visibility">Please login to continue</p>
+<p class="toaster" id="error_toaster">Asset is already added to favourites</p>
+<p class="toaster" id="remove_toaster" [@visibilityChanged]="assetRemovedVisibility">Asset is removed from favourites</p>
+<div class="clearfix"></div>
+<Br><br>
+

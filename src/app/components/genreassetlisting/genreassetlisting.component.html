@@ -1,0 +1,47 @@
+<div class="container-fluid">
+    <div id="block-dollywood-content" class="margin_top_prinav min_page_height">
+        <div class="container-fluid">
+            <div class="paglist row">
+                <h3 style="color:#fff">{{genreName}}</h3>
+            </div>
+            <div class="clearfix"></div>
+            <div class="row ">
+                <div *ngIf="assetsList == undefined || assetsList.length == 0">
+                    No content available
+            </div>
+            <div *ngFor="let asset of assetsList" class="col-xs-6 col-sm-3 col-md-2 col-lg-2 margin30 padd_7">
+                <div class="vidWrapper">
+
+                    <a routerLink="/video/{{asset.title}}/{{asset.path}}">
+                        <!--<img src="./assets/images/play-ico.png" class="img-responsive play_icon">-->
+                        <!--<div class="vidDuration">{{asset.duration}}</div>-->
+
+                        <img src="{{asset.image}}" src-fallback="{{ defaultImg }}" class="img-responsive img_vertical" style="width:100%;">
+                        <div class="content">
+                            <h1>{{asset.displayTitle}}</h1>
+                            <h2></h2>
+                            <p class="js_assdeselip assdeselip" style="display: none;">
+                                {{asset.desc}}
+                            </p>
+                            <span class="duration">Duration: {{asset.duration}} hrs </span>
+                            <div class="watchnowbutton " style="margin-top:5px;">
+                                WATCH NOW
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="divider">
+                <div class="circle">
+                    <i class="fa fa-ellipsis-v before_hover"></i>
+                    <i class="fa fa-arrow-down after_hover"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>

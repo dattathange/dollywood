@@ -1,0 +1,194 @@
+
+<div class="views-element-container container-fluid " id="block-views-block-page-category-block-1">
+    <div class="clearfix"></div>
+    <div class="container-fluid mobile_container mt-170"
+         infiniteScroll
+         [infiniteScrollDistance]="1"
+         [infiniteScrollThrottle]="20"
+         (scrolled)="onScroll()">
+         <div class="home_car_mar_top"></div>
+        <div *ngFor="let categoryItem of pageCategoryModel" class="container mb60">
+            <div class="row title-bar" *ngIf="categoryItem.data.length > 0">
+                <div class="tbl-row">
+                    <div class="title">
+                        <div class="shows-title mayuri gotham-b" style="float:left">
+                            {{ categoryItem.displayTitle }}  
+                        </div>
+                    </div>
+                    <div class="right-border" *ngIf="categoryItem.data.length > 6">
+                        <div class="see_all gotham-b" style="margin: 4px 0px 0px 0px;">
+                            <div class="arrow"></div>
+                            <div class="arrow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div  *ngIf="categoryItem.data.length > 0" class="owl-carousel owl-theme home-category-carousel customOWL owl-loaded owl-drag inner-carousel">
+
+                <owl-carousel
+                    [options]="categoryItem.carousalOptions"
+                    [items]="categoryItem.data"
+                    [carouselClasses]="['owl-theme', 'home-category-carousel' , 'sliding']">
+                    <div  class="owl-item active" *ngFor="let slide of categoryItem.data;let i = index">
+                          <div class="col-sm-3 col-md-3 col-lg-3 margin30" style="padding:2px;">
+                            <a (click)="slideClicked(slide)" >
+                                <div class="vidWrapper">
+                                    <img *ngIf="categoryItem.display_type=='Horizontal'" class="img_horizontal" alt="" width="100%" src="{{slide.orientation[0].image_horizontal}}" src-fallback="{{ defaultImgHorizontal }}">
+                                    <img *ngIf="categoryItem.display_type!='Horizontal'" class="img_vertical" alt="" width="100%" src="{{slide.orientation[0].image}}" src-fallback="{{ defaultImg }}">
+                                    
+                                    <div class="content">
+
+                                        <div class="play-btn">
+                                            <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                        </div>
+                                    </div>
+                            </div>
+                        </a>
+                        <div class="corousel-item-footer-wrapper">
+                            <div class="corousel-item-footer">
+                                <h5><b>{{slide.orientation[0].title}}</b></h5>
+                                <div class="statistic">
+                                    <div class="duration">{{slide.duration}} hrs</div>
+                                    <div class="likes"><i class="fa fa-thumbs-up"></i>678</div>
+                                    <div class="views"><i class="fa fa-eye"></i>678</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </owl-carousel>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="container-fluid mobile_container mt-170 last-el-mb60"
+         infiniteScroll
+         [infiniteScrollDistance]="1"
+         [infiniteScrollThrottle]="20"
+         (scrolled)="onScroll()">
+         <div class="home_car_mar_top"></div>
+        <div class="container mb60 mt-160">
+            <div>
+            <div class="row title-bar">
+                <div class="tbl-row">
+                    <div class="title">
+                        <div class="shows-title mayuri gotham-b" style="float:left">
+                            Most Popular  
+                        </div>
+                    </div>
+                    <div class="right-border">
+                        <div class="see_all gotham-b" style="margin: 4px 0px 0px 0px;">
+                            <div class="arrow"></div>
+                            <div class="arrow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="owl-carousel owl-theme home-category-carousel customOWL owl-loaded owl-drag inner-carousel">
+                <div class="first-image">
+                    <div class="banner_image" style="width: 50%; float: left; padding-right: 15px;">
+                        <img class="img_vertical" alt="" width="100%" src="../../../assets/images/mp-first.png">
+                        <div class="corousel-item-footer-wrapper">
+                            <div class="corousel-item-footer">
+                                <h5><b>Action</b></h5>
+                                <div class="statistic">
+                                    <div class="duration">01:30:00 hrs</div>
+                                    <div class="flex-item">
+                                        <div class="likes"><i class="fa fa-thumbs-up"></i>678</div>
+                                        <div class="views"><i class="fa fa-eye"></i>678</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-1">
+                <owl-carousel
+                [options]="mpcarousalOneOptions"
+                [items]="mpcarouselOneItems"
+                [carouselClasses]="['owl-theme', 'home-category-carousel' , 'sliding']" style="width: 50%; float: left;" id="sync1" >
+                <div  class="owl-item active" *ngFor="let slide of mpcarouselOneItems;let i = index">
+                      <div class="col-sm-3 col-md-3 col-lg-3 margin10" style="padding:2px;">
+                        <a (click)="slideClicked(slide)" >
+                            <div class="vidWrapper">
+                                <!-- <img *ngIf="categoryItem.display_type=='Horizontal'" class="img_horizontal" alt="" width="100%" src="{{slide.orientation[0].image_horizontal}}" src-fallback="{{ defaultImgHorizontal }}"> -->
+                                <img  class="img_vertical" alt="" width="100%" src="{{slide}}">
+                                
+                                <div class="content">
+
+                                    <div class="play-btn">
+                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                        </div>
+                    </a>
+                    <div class="corousel-item-footer-wrapper">
+                        <div class="corousel-item-footer">
+                            <h5><b>Action</b></h5>
+                            <div class="statistic">
+                                <div class="duration">01:30:00 hrs</div>
+                                <div class="flex-item">
+                                    <div class="likes"><i class="fa fa-thumbs-up"></i>678</div>
+                                    <div class="views"><i class="fa fa-eye"></i>678</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </owl-carousel>
+        </div>
+        <div class="carousel-2">
+        <owl-carousel
+                [options]="mpcarousalTwoOptions"
+                [items]="mpcarouselTwoItems"
+                [carouselClasses]="['owl-theme', 'home-category-carousel' , 'sliding']" class="second-carousel" style="width: 50%; float: left;" id="sync2">
+                <div  class="owl-item active" *ngFor="let slide of mpcarouselTwoItems;let i = index">
+                      <div class="col-sm-3 col-md-3 col-lg-3 margin10" style="padding:2px;">
+                        <a (click)="slideClicked(slide)" >
+                            <div class="vidWrapper">
+                                <!-- <img *ngIf="categoryItem.display_type=='Horizontal'" class="img_horizontal" alt="" width="100%" src="{{slide.orientation[0].image_horizontal}}" src-fallback="{{ defaultImgHorizontal }}"> -->
+                                <img  class="img_vertical" alt="" width="100%" src="{{slide}}">
+                                
+                                <div class="content">
+
+                                    <div class="play-btn">
+                                        <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                        </div>
+                    </a>
+                    <div class="corousel-item-footer-wrapper">
+                        <div class="corousel-item-footer">
+                            <h5><b>Action</b></h5>
+                            <div class="statistic">
+                                <div class="duration">01:30:00 hrs</div>
+                                <div class="flex-item">
+                                    <div class="likes"><i class="fa fa-thumbs-up"></i>678</div>
+                                    <div class="views"><i class="fa fa-eye"></i>678</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </owl-carousel>
+    </div>
+                </div>
+
+        </div>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="circle" *ngIf="pageCategoriesLoading">
+    <i class="fa fa-ellipsis-v before_hover"></i>
+    <i class="fa fa-arrow-down after_hover"></i>
+</div>
+
+
+</div>
+<!--<div class="loading" [hidden]="nothingLoading == true">Loading&#8230;</div>-->

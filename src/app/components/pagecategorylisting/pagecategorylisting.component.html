@@ -1,0 +1,74 @@
+<div class="container-fluid">
+    
+    <div id="block-dollywood-content" class="margin_top_prinav min_page_height">
+        <div class="views-element-container">
+            <div class="js-view-dom-id-f617fbd4f4bf95e65acf726c819cf9e722fb07d55a258bf1c23b48d6c545c818">
+
+                <div class="clearfix"></div>
+                <div class=""></div>
+                <div class="breadcrumb-custom detail-breadcrumb m_top0">
+                        <ol class="breadcrumb">
+                          <li class="breadcrumb-item ng-scope" 
+                          ><a routerLink="" class="ng-binding">Home</a></li><!-- end ngIf: category_name == 'Home' -->
+                          <li class="breadcrumb-item active"><a href="javascript:void(0);" class="ng-binding">{{pageCategoryTitle}}</a></li>    
+                        </ol>
+                      </div>
+                <div class="section" id="home">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="paglist">
+                                <h3>
+                                    {{pageCategoryTitle}}
+                                </h3>
+                            </div>
+
+                            <span class="views-field views-field-field-map-with-video-pag-cat">
+                                <span class="field-content"> 
+                                    <div *ngFor="let asset of assetsList" [ngClass]="(asset.display_type !='Horizontal')?' col-md-2 col-lg-2 ':''" class="col-xs-6 col-sm-3  padd_7 margin30">
+                                        <a routerLink="/video/{{asset.title}}/{{asset.path}}">
+                                            <div class="vidWrapper">
+                                                    <!--<img src="../../../assets/images/play.png" class="img-responsive play_icon">-->
+                                                    <!--<div class="vidDuration">{{asset.duration}}</div>-->
+                                                      
+                                                <img *ngIf="asset.display_type=='Horizontal'" class="img_horizontal" src="{{asset.image_horizontal}}" src-fallback="{{ defaultImgHorizontal }}" style="display: inline;" width="100%">
+                                                <img *ngIf="asset.display_type!='Horizontal'" class="img_vertical"  src="{{asset.image}}" src-fallback="{{ defaultImg }}" style="display: inline;" width="100%">
+                                                <!--<img src="{{asset.image}}" src-fallback="{{ defaultImg }}" style="display: inline;" width="100%">-->
+                                                <div class="content">
+                                                    <h1>{{asset.displayTitle}} </h1>
+                                                    <p [ngClass]="(asset.display_type !='Horizontal')?' js_assdeselip assdeselip ':'js_assdeselip assdeselip_horizontal'" style="display: none;">
+                                                        {{asset.desc}}
+                                                    </p>
+                                                    <p><span class="duration">Duration: {{asset.duration}} hrs </span></p>
+                                                    <div class="watchnowbutton " style="margin-top:5px;">
+                                                        WATCH NOW    
+                                                    </div>   
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+           
+                                </span>
+                            </span>
+                            
+                            <!--                    </div>-->
+
+                            <div class="clearfix"></div>
+                            <div class="divider">
+                                <div class="circle">
+                                    <i class="fa fa-ellipsis-v before_hover"></i>
+                                    <i class="fa fa-arrow-down after_hover"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+
+
+   
+
+</div>

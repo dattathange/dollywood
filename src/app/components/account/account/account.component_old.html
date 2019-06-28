@@ -1,0 +1,56 @@
+<div class="container-fluid ">
+  <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+  
+    <div class="profile_form margin_top_prinav">
+      
+    <!--<hr style="border-color:#a1a1a1;opacity:0.1">-->
+    
+      <div id="edittab1show" class="edit-tab-content pad_top_prinav">
+        <div class="profilePic pos_rel centerImg ">
+          <img src="{{userProfileData.picture}}" src-fallback="{{ defaultImage }}" id="imageuserset" class="profile_pic img-responsive ">
+      </div>
+        <label class="edit_label">Full Name</label>
+        <input type="text" class="profile_input" id="fullname" [(ngModel)]="userProfileData.full_name">
+              <label class="edit_label">Gender</label><br>
+      
+      <!--input type="radio" name="genderMale"[(ngModel)]="gender" value="Male" class="input_radio">
+        <label for="genderMale"><span></span>Male</label>
+
+        <input type="radio"[(ngModel)]="gender" name="genderFemale" value="Female" class="input_radio">
+        <label for="genderFemale"  class="marg_left"><span></span>Female</label>
+
+        <input type="radio" name="gender" value="Other" class="input_radio">
+        <label for="radio03" class="marg_left"><span></span>Other</label-->
+
+        <div class="usergender">
+          <label>
+            <input type="radio" [(ngModel)]="userProfileData.gender" name="options" value="Male" />
+            <span>Male</span>
+          </label>
+          <label >
+            <input type="radio" [(ngModel)]="userProfileData.gender" name="options" value="Female" />
+            <span>Female</span>
+          </label>
+          <label >
+            <input type="radio" [(ngModel)]="userProfileData.gender" name="options" value="Other" />
+            <span>Other</span>
+          </label>
+        </div>
+        <br><br>
+         
+        <label class="edit_label">Username</label>
+        <input type="text" class="profile_input" [(ngModel)]="userProfileData.uname" readonly>
+              
+        <label class="edit_label">About Me</label>
+        <textarea class="profile_input resize_none" id="about" [(ngModel)]="userProfileData.about" value="" name="about_me" style="height: 108px;"></textarea>                
+              
+              <button (click)="updateProfile()" class="centreImg profile-btn">Edit</button>
+              <span class="profile_message" [ngStyle]="{'color': status === true ? 'green' : 'red'}" [hidden]="errorMessage == undefined || errorMessage.length == 0">
+                  {{errorMessage}}
+                </span>
+            </div>
+
+    </div><!--profile form end-->
+  </div>
+</div>
+<div class="loading" [hidden]="nothingLoading == true">Loading&#8230;</div>

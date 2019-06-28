@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div id="block-dollywood-content" class="margin_top_prinav min_page_height">
+        <div class="container-fluid">
+            <div class="paglist row"><h3 style="color:#fff">Genre</h3></div>
+            <div class="clearfix"></div>
+            <div class="row">
+                    <div *ngIf="genreList == undefined || genreList.length == 0">
+                            No content available
+                    </div>
+                <div *ngFor="let genre of genreList" class="col-xs-6 col-sm-3 col-md-2 col-lg-2 padd_7 margin30">
+                    <a routerLink="/genre/{{genre.title}}/list/{{genre.path}}">
+                        <div class="genre_video pos_rel">
+                            <img src="{{genre.image}}" src-fallback="{{ defaultImg }}" class="img-responsive genre_list_img" style="width:100%;">
+
+                            <div class="caption">
+                                <h3 class="text-center">{{genre.displayTitle}}</h3>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+    </div>
+</div>

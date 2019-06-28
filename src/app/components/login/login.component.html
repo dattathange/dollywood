@@ -1,0 +1,149 @@
+<span *ngIf="loggedIn">User logged in successfully</span>
+<div class="login_bg">
+    <div class="banner_overlay"></div>
+    <div class="parentClassCenter">
+        <div class="childClass">
+            <div class="container">
+                <!-- <div class="row row-flex  fix_height">
+                    <div class="col-sm-12 col-md-4 col-lg-4 nopadding">
+                        <div class="white_bg">
+                            <div class="parentClassCenter">
+                                <div class="childClass">
+                                    <div class="pos_rel">
+                                        <span class="err_msg" id="errMsgMobile">{{errorMessage}}</span>
+                                    </div>
+                                    <form (ngSubmit)="sendOtp()" #loginForm="ngForm">
+                                    <div class="pos_rel">
+                                        <input type="text" pattern="[0-9]*"
+                                        minlength="10"
+                                        maxlength="10" 
+                                        [readonly]='eMail != undefined && eMail.length > 0' 
+                                        class="login_text" id="mobile" [(ngModel)]="mobileNo" 
+                                        name="mobile" title="Please enter 10 digit number"
+                                        #mobile="ngModel" (focus)="floatLabel('mobile')">
+                                        <span [class]="mobileClass">Mobile Number(10 digits) <span style="color:#f00">*</span></span>
+                                        <span [hidden]="!mobile.hasError('pattern') && !mobile.hasError('minlength')" class="err_msg" id="errMsgMobile">Mobile number should be only numbers and
+                                            should be 10 digit</span>
+                                    </div>
+                                    <div class="divider_login">
+                                        <div class="circle_login">
+                                            <span class="or">OR</span>
+                                        </div>
+                                    </div>
+                                    <div class="pos_rel">
+                                        <input #email="ngModel" (focus)="floatLabel('email')" type="email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"  [readonly]='mobileNo != undefined && mobileNo.length > 0' class="login_text" id="email" [(ngModel)]="eMail" name="email">
+                                        <span [class]="emailClass">Email <span style="color:#f00">*</span></span>
+                                        <span class="err_msg" id="errMsgEmail" [hidden]="email.valid || email.pristine">
+                                            Email format should be 
+                                            <small><b>joe@abc.com</b></small>
+                                        </span>
+                                    </div>
+                                    <p class="agree_text">By clicking Sign in, you agree to our <a href="/footer/terms" target="_blank">Terms &amp; conditions</a> and that you have read our <a href="/footer/privacy" target="_blank">Privacy policy</a></p>
+                                    
+                                    <div class="pos_rel">
+                                        <i class="fa fa-spinner fa-spin spinner"></i>
+                                        <button type="submit" class="login_btn" id="login_submit" [disabled]="!loginForm.form.valid">Sign In</button>
+                                    </div>
+                                    </form>
+                                    <div class="clearfix"></div>
+                                    
+                                    <div class="clearfix"></div>
+                                    <div class="divider_login">
+                                        <div class="circle_login">
+                                            <span class="or">OR</span>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-6 col-lg-6">
+                                            <a  (click)="signInWithGoogle()" class="login_register bottom_reg"><img src="assets/images/google-plus.png" class="img-responsive" />GOOGLE </a>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 col-lg-6">
+                                            <a (click)="signInWithFB()" class="login_facebook bottom_reg"><img src="assets/images/facebook-logo.png" class="img-responsive" /> FACEBOOK </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-8 col-lg-8">
+                        <div class="parentClassCenter">
+                            <div class="childClass">
+                                <div class="login_right_text">
+                                    <h3 class="login_head">Dollywood Play</h3>
+                                    <h5 class="login_subhead">The World of Hindi dubbed Movies.</h5>
+                                    <p class="login_head_text">Latest South dubbed movies on all devices: mobiles, tablets, laptops, Computers Full movies, Mini Movies, Promos, Clip TV, Music Videos. Just one click and watch your favourite Hindi dubbed movies. Filter by genre; Action, Thriller, Horror, Love, Drama. No wastage of data &amp; time to search videos of your choice and taste. Long and short content: Full movies, Mini Movies, Clips, Music Video. Save your favourite videos, make your own playlists. Share your liked videos with your friends.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div> -->
+                <div class="pos_rel login-form">
+                    <div class="pos_rel">
+                        <span class="err_msg" id="errMsgMobile">{{errorMessage}}</span>
+                    </div>
+                    <form (ngSubmit)="sendOtp()" #loginForm="ngForm">
+                        <div class="email-or-phone">
+                            <input type="text" pattern="[0-9]*"
+                                            minlength="10"
+                                            maxlength="10" 
+                                            [readonly]='eMail != undefined && eMail.length > 0' 
+                                            class="login_text" id="mobile" [(ngModel)]="mobileNo" 
+                                            name="mobile" title="Please enter 10 digit number"
+                                            #mobile="ngModel" (focus)="floatLabel('mobile')" placeholder="Email or Phone *">
+                                            <span [hidden]="!mobile.hasError('pattern') && !mobile.hasError('minlength')" class="err_msg" id="errMsgMobile">Mobile number should be only numbers and
+                                                should be 10 digit</span>
+                        </div>
+                        <p>By clicking Sign in, you agree to our Terms & conditions and that you have read our Privacy policy</p>
+                        <button type="submit" class="login_btn" id="login_submit" [disabled]="!loginForm.form.valid">Sign In</button>
+                    </form>
+                    <div class="sign-in-using-text">
+                        Or <br /> Sign In Using
+                    </div>
+                    <div class="sign-in-using-icons">
+                        <div class="social-icons fb"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                        <div class="social-icons gplus"><i class="fa fa-google-plus" aria-hidden="true"></i></div>
+                    </div>
+                </div>
+                <div class="login_right_text">
+                    <h3 class="login_head">Dollywood Play</h3>
+                    <h5 class="login_subhead">The World of Hindi dubbed Movies.</h5>
+                    <p class="login_head_text">Latest South dubbed movies on all devices: mobiles, tablets, laptops, Computers Full movies, Mini Movies, Promos, Clip TV, Music Videos. Just one click and watch your favourite Hindi dubbed movies. Filter by genre; Action, Thriller, Horror, Love, Drama. No wastage of data &amp; time to search videos of your choice and taste. Long and short content: Full movies, Mini Movies, Clips, Music Video. Save your favourite videos, make your own playlists. Share your liked videos with your friends.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                    <!--opt modal-->
+                    <div *ngIf="sessionId != undefined && sessionId.length != 0 && showModal == true" id="otpModal" class="modal fade in" role="dialog" data-backdrop="static" data-keyboard="false" aria-hidden="false" style="display: block;">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" (click)="closeModal()">×</button>
+                                    <h4 class="modal-title text-center">OTP</h4>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <p id="otp_text">Please enter the confirmation code we sent to your mobile number</p>
+                                    <input [(ngModel)]="otp" type="text" class="otp_text" placeholder="Enter OTP" id="otp" #otpField="ngModel" required ><br>
+                                    <span id="errMsgOtp" *ngIf="inCorrectOtp == true" style="color:#f00;font-size:12px;margin-top:5px;">OTP you've entered is incorrect, please try again</span>
+                                    <span *ngIf="otpField.invalid" id="errMsgOtp" style="color:#f00;font-size:12px;margin-top:5px;">OTP required</span>
+                                    <br>
+                                    <div class="pos_rel">
+                                        <i class="fa fa-spinner fa-spin spinner spinner_reotp" style="opacity: 0;"></i>
+                                        <div style="cursor:pointer;margin-top:10px;" id="resend_otp" (click)="sendOtp()"><u>Didn't receive OTP? Click here to resend</u></div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="pos_rel">
+                                        <i class="fa fa-spinner fa-spin spinner spinner_otp"></i>
+                                        <button type="submit" class="login_btn submit_otp_btn" (click)="varifyOTP()">SUBMIT</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <span *ngIf="loggedIn">User logged in successfully</span>
+                        </div>
+                    </div>
+                    <div class="loading" [hidden]="nothingLoading == true">Loading&#8230;</div>

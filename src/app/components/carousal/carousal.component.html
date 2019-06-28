@@ -1,0 +1,50 @@
+<div class="carousal_wrapper">
+    <owl-carousel
+        [options]="{items: 1, dots: false, navigation: false,autoplay:false,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,loop:true}"
+        [items]="slides"
+        [carouselClasses]="['owl-theme', 'main-carousel' ,'sliding']">
+        <div class="item" *ngFor="let slide of slides;let i = index">
+
+         <a *ngIf="slide.is_visible == true" (click)="goToPage(slide)" _ngcontent-c1="">
+                <div _ngcontent-c1="" class="item slider_img pos_rel banner4">
+                    <img _ngcontent-c1="" alt="" class="owl_img_slider img-responsive" width="100%"
+                         src="{{slide.img}}">
+                    <div _ngcontent-c1="" class="slider_content">
+                        <div _ngcontent-c1="" class="">
+                            <!-- <div _ngcontent-c1="" class="pad_left"> -->
+                            <div _ngcontent-c1="" class="container-fluid mtop40">
+
+                                <!-- <div class="watchnowbutton">
+                                    WATCH NOW
+                                </div> -->
+                                
+                                <div class="home-page-banner">
+                                    <!-- <img src="../../../assets/images/home-banner.png" /> -->
+                                    <div class="container info">
+                                        <div class="movie-info">
+                                            <h3>PANDIGAI</h3>
+                                            <p>Velu, a brave and poor young man, joins an underground fight club and becomes their top fighter over time. However, he begins to look for a way out after falling in love with a woman.</p>
+                                            <button class="btn play-btn"><i class="fa fa-caret-right" aria-hidden="true"></i><span>Play</span></button>
+                                            <button class="btn watch-list-btn"><i class="fa fa-plus" aria-hidden="true"></i><span>Wish List</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--
+                                                  <img _ngcontent-c1="" class="img-responsive play_btn" src="./assets/images/play-button.png">
+                                                  <p _ngcontent-c1="" class="slider-data-cont fadeIn">{{slide.label}}</p>
+                                                  <p _ngcontent-c1="" class="slider-data-title fadeIn">  {{slide.title}}  </p>
+                                                  <p _ngcontent-c1="" class="slider-data-cont fadeIn">{{slide.description}} </p>
+                                -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </owl-carousel>
+    <div class="main_carousal_angle_down"><i class="js_page_down fa fa-angle-down fa-2x"></i></div>
+
+</div>

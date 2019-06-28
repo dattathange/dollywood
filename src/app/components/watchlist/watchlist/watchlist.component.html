@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div id="block-dollywood-content" class="margin_top_prinav min_page_height">
+        <div class="shows-title gotham-b mtop50" style="float:left" *ngIf="userWatchList.data == undefined || userWatchList.data.length == 0">
+             <strong><span id="watchTitle" class="text_center">No records found</span></strong>
+        </div>
+        <div class="container-fluid">
+            <div class="paglist row"><h3 style="color:#fff">WatchList</h3></div>
+            <div class="clearfix"></div>
+            <div class="row">
+                <span class="views-field views-field-field-map-with-video-pag-cat">
+                    <span class="field-content">
+                        <div *ngFor="let item of userWatchList.data" class="col-sm-3 col-xs-6 col-md-2 col-lg-2 pad_two_side margin30">
+                            <a (click)="itemClicked(item)">
+                                <div class="vidWrapper">
+                                    <!--<img src="./assets/images/play-ico.png" class="img-responsive play_icon">-->
+                                    <!--<div class="vidDuration">{{item.duration}}</div>-->
+
+                                    <a href="{{item.url}}"><img class="img_vertical" src="{{item.orientation[0].image}}" style="display: inline;" width="100%;">
+                                    </a>
+                                    <div class="content">
+                                        <h1>{{item.orientation[0].title}} </h1>
+                                        <!--   <h1></h1>
+                                        <h2></h2>  -->
+
+                                        <p class="js_assdeselip assdeselip" style="display: none;">
+                                            {{item.orientation[0].description}}
+                                        </p>
+                                        <span class="duration">Duration: {{item.duration}} hrs </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </span>
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+</div>

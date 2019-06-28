@@ -1,0 +1,116 @@
+<div class="container-fluid ">
+    <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+
+        <div class="profile_form margin_top_prinav">
+
+            <!-- <div id="edittab1show" class="edit-tab-content pad_top_prinav min_page_height">
+                <div class="profilePic pos_rel centerImg " >
+                    <img (click)="openAccountModal()" *ngIf="userProfileData != undefined" src="{{userProfileData.picture}}" src-fallback="{{ defaultImage }}" id="imageuserset" class="profile_pic img-responsive ">
+                        <span  (click)="openAccountModal()" class="change_profile_pic fa fa-camera"></span>
+                </div>
+                
+                <label class="edit_label">Full Name</label>
+                <input *ngIf="userProfileData != undefined" type="text" class="profile_input" id="fullname" [(ngModel)]="userProfileData.full_name">
+                <label class="edit_label">Gender</label><br>
+
+                <div class="usergender">
+                    <label>
+                        <input *ngIf="userProfileData != undefined" type="radio" [(ngModel)]="userProfileData.gender" name="options" value="Male" />
+                        <span>Male</span>
+                    </label>
+                    <label >
+                        <input *ngIf="userProfileData != undefined" type="radio" [(ngModel)]="userProfileData.gender" name="options" value="Female" />
+                        <span>Female</span>
+                    </label>
+                    <label >
+                        <input *ngIf="userProfileData != undefined" type="radio" [(ngModel)]="userProfileData.gender" name="options" value="Other" />
+                        <span>Other</span>
+                    </label>
+                </div>
+                <br><br>
+
+                <label class="edit_label">Username</label>
+                <input *ngIf="userProfileData != undefined" type="text" class="profile_input" [(ngModel)]="userProfileData.uname" readonly>
+
+                <label class="edit_label">About Me</label>
+                <textarea *ngIf="userProfileData != undefined" class="profile_input resize_none" id="about" [(ngModel)]="userProfileData.about" value="" name="about_me" style="height: 108px;"></textarea>
+
+                <button (click)="saveProfileDetails()"  class="centreImg profile-btn">SAVE</button>
+                <span class="profile_message" [ngStyle]="{'color': status === true ? 'green' : 'red'}" [hidden]="errorMessage == undefined || errorMessage.length == 0">
+                      {{errorMessage}}
+            </span>
+        </div> -->
+        
+        <!--New Html -->
+        <div class="user-image-block">
+            <div class="user-image">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <div class="camera-icon">
+                    <i class="fa fa-camera" aria-hidden="true"></i>
+                </div>
+            </div>
+            <div class="movies-videos">
+                <div class="movies">
+                    <div class="count">
+                        <i class="fa fa-eye" aria-hidden="true"></i> <span>234</span>
+                    </div>
+                    <div class="text">Movies</div>
+                </div>
+                <div class="videos">
+                    <div class="count">
+                        <i class="fa fa-eye" aria-hidden="true"></i> <span>678</span>
+                    </div>
+                    <div class="text">Videos</div>
+                </div>
+            </div>
+            <div class="welcome-text">
+                <h1>Welcome</h1>
+            </div>
+            <div class="name-text">Vikram Bajaj</div>
+            <div class="email-id"><span>vbajaj@gmail.com</span> <i class="fa fa-mars" aria-hidden="true"></i></div>
+            <button class="edit-profile">Edit Profile</button>
+        </div>
+
+    </div>
+    <div class="bottom-text">
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+    </div>
+</div>
+</div>
+
+<div class="open_picture" >
+    <div [ngClass]="(showAccountModal)?'modal fade in ':'modal fade'" [ngStyle]="{'display': showAccountModal? 'block' : 'none'}" id="myModal" role="dialog" *ngIf="showAccountModal">
+        
+        <div class="uploadPhotoPopup">
+            <button type="button" class="close text-center" data-dismiss="modal" (click)="hideAccountModal()">&times;</button>
+            <img src="./assets/images/logo_2.png" alt="Home" class="logoutLogo">
+            <span class="logoutText text-center">Are you sure you want to delete photo ?</span><br/>
+            <div class="pos_relative">
+                <div class="logoutSet">
+                    <div class="account_picture">
+                        <label for="file-upload" class="logoutButton logYes">
+                            Upload Picture
+                        </label>
+                        <input id="file-upload" type="file" (change)="updateProfilePicture($event)" enctype="multipart/form-data" style="display:none;"/>
+                        <a (click)="removeProfilePictureClicked()" class="logoutButton logCancel">Delete Picture</a>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+<div class="logoutPopup" [hidden]="removeProfilePictureButtonClicked == false">
+     <img src="./assets/images/logo_2.png" alt="Home" class="logoutLogo">
+    <span class="logoutText text-center">Are you sure you want to delete photo ?</span><br/>
+    <div class="pos_relative">
+        <div class="logoutSet">
+            <button class="logoutButton  logCancel" (click)="cancelProfilePicture()">Cancel</button>
+            <button  class="logoutButton logYes" (click)="removeProfilePicture()">Yes</button>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="loading" [hidden]="nothingLoading == true">Loading&#8230;</div>

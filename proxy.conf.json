@@ -1,0 +1,12 @@
+{
+  "/api/v1/": {
+    "target": "https://dcafe.stage.dctinc.net",
+    "secure": true,
+    "pathRewrite": {
+    "^/api/v1/": ""
+  },
+  "changeOrigin": true,
+  "logLevel": "debug"
+
+  }
+}

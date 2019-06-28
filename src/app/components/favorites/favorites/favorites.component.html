@@ -1,0 +1,83 @@
+<div class="container-fluid">
+    <div id="block-dollywood-content" class="margin_top_prinav min_page_height">
+        
+        <!-- <div class="container-fluid">
+            <div class="paglist row"><h3 style="color:#fff">Favorites</h3></div>
+            <div class="clearfix"></div>
+        </div> -->
+
+        
+        
+
+        <div class="container-fluid">
+            <div class="container">
+                <div class="row title-bar">
+                    <div class="col-sm-6 col-md-6">
+                        <div class="shows-title" style="float:left">
+                            Favourites
+                            <!-- <a routerLink="/category/{{categoryItem.title}}/list/{{categoryItem.path}}">
+                                {{ categoryItem.displayTitle }}
+                            </a> -->
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6 right-border" *ngIf="userFavorites?.data?.length > 6"> <!-- [ngClass]="{'right-border': categoryItem.data.length > 6}" -->
+                        <div class="see_all gotham-b" style="float:right; margin: 4px 0px 0px 0px;"></div>
+                    </div>
+                </div>
+                <div>
+                    <span class="views-field views-field-field-map-with-video-pag-cat inner-carousel">
+                        <span class="field-content">
+                            <div class="col-sm-3 col-md-2 col-xs-6 col-lg-2 pad_two_side margin30" *ngFor="let item of userFavorites.data">
+                                <a>
+                                    <div class="vidWrapper">
+                                        <!-- <div class="removeFav" (click)="removeFromFavoriteClicked(item)" ><i class="fa fa-minus"></i></div> -->
+                                        <div class="deleteItem" (click)="removeFromFavoriteClicked(item)"><i class="fa fa-trash" aria-hidden="true"></i></div>
+                                        <!--<img src="./assets/images/play-ico.png" class="img-responsive play_icon">-->
+                                        <!--<div class="vidDuration">{{item.duration}}</div>-->
+                                        <img (click)="itemClicked(item)" src="{{item.orientation[0].image}}" style="display: inline;" width="100%;">
+                                        <div class="content">
+                                            <!-- <h1>{{item.orientation[0].title}}</h1>
+                                            <p class="js_assdeselip assdeselip" style="display: none;">
+                                                {{item.orientation[0].description}}
+                                            </p> -->
+                                            <div class="play-btn">
+                                                <i class="fa fa-caret-right" aria-hidden="true"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="corousel-item-footer-wrapper">
+                                    <div class="corousel-item-footer">
+                                        <h5><b>{{item.orientation[0].title}}</b></h5>
+                                        <div class="statistic">
+                                            <div class="duration">{{item.duration}} hrs</div>
+                                            <div class="likes"><i class="fa fa-thumbs-up"></i>678</div>
+                                            <div class="views"><i class="fa fa-eye"></i>678</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </span>
+                    </span>
+                </div>
+                <div class="shows-title gotham-b no-border-left" style="float:left" *ngIf="userFavorites.data == undefined || userFavorites.data.length == 0">
+                    <span id="watchTitle" class="text_center" style="opacity:.5;">No records found</span> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="logoutPopup" [hidden]="removeFavoriteClicked == false">
+        <img src="http://dollywoodplay.dev.dctinc.net/sites/default/files/logo_2.png" alt="Home" class="logoutLogo">
+        <span class="logoutText text-center">Are you sure you want to remove this item from favorites ?</span><br/>
+        <div class="pos_relative">
+            <div class="logoutSet">
+                <button class="logoutButton  logCancel" (click)="cancelRemoveFavorite()">Cancel</button>
+                <button  class="logoutButton logYes" (click)="confirmRemoveFavorite()">Yes</button>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+</div>

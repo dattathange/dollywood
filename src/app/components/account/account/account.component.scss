@@ -1,0 +1,91 @@
+.profile_form {
+    margin-top: 20%;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 50px;
+}
+.user-image-block {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 400px;
+    .user-image {
+        width: 278px;
+        height: 278px;
+        border-radius: 50%;
+        background: #363636;
+        margin: 0 auto;
+        position: relative;
+            i.fa-user {
+                font-size: 161px;
+                line-height: 278px;
+                color: #5F5F5F;
+            }
+        }
+        .camera-icon {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 42px;
+            height: 42px;
+            background: #5F5F5F;
+            border-radius: 50%;
+            line-height: 42px;
+            i.fa-camera {
+                color: #C3C3C3;
+            }
+        }
+        .movies-videos {
+            width: 300px;
+            color: #5F5F5F;
+            height: 40px;
+            margin: 30px auto 40px auto;
+            display: block; 
+            font-size: 13px;
+        }
+        .movies-videos .movies, .movies-videos .videos {
+            width: 50%;
+            float: left;
+        }
+        .movies-videos .text {
+            text-transform: uppercase;
+        }
+        .movies-videos .movies .text {            
+            border-right: 1px solid #5F5F5F;
+        }
+        .welcome-text h1 {
+            font-size: 45px;
+            color: #8E8E8E;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+        .name-text {
+            font-size: 30px;
+            color: #FFFFFF;
+            font-weight: 500;
+        }
+        .email-id {
+            font-size: 18px;
+            color: #FFFFFF;
+            margin-bottom: 20px;
+        }
+        .email-id span {
+            display: inline-block;
+            padding-right: 30px;
+        }
+        .email-id i {
+            color: #8E8E8E;
+        }
+        .edit-profile {
+            border: 1px solid #8E8E8E;
+            color: #8E8E8E;
+            font-size: 13px;
+            text-transform: uppercase;
+            background: transparent;
+            padding: 5px 20px;
+        }
+}
+.bottom-text {
+    color: #8E8E8E;
+    font-size: 20px;
+    margin: 30px 0px 50px 0px;
+    text-align: center;
+}

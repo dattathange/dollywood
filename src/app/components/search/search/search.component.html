@@ -1,0 +1,39 @@
+<div class="container-fluid min_page_height">
+    <div id="data">
+      <div class="shows-title gotham-b mtop50" style="float:left;width:100%">
+        <div class="row">
+          <div class="col-sm-6 col-md-6 col-lg-6">
+            <div id="notResultFound" style="display: none;"></div>
+            <div id="notResultLeft"><strong>Search results for '<span id="search_strong">{{globalNavData.searchQuery}}</span>'</strong></div> <br>
+          </div>
+          <div class="col-sm-6 col-md-6 col-lg-6">
+            <div id="notResultRight"><div class="pull-right"><strong>Total results : <span id="TotalCount">{{searchCount}}</span></strong></div></div> <br>
+          </div>
+          <div class="clearfix"></div>
+          <div class="text-center" *ngIf="searchCount==0">No result found</div>
+        </div>
+        <div id="innerSearch"  class="search_content" style="margin-top:25px;">
+          <div class="col-xs-6 col-sm-3 col-md-2 margin30 padd_7" *ngFor="let item of searchResults"  >
+            <div class="vidWrapper pos_rel">
+              <a (click)="itemClicked(item)">
+                  <!--<img src="./assets/images/play-ico.png" class="img-responsive play_icon">-->
+                  <!--<div class="vidDuration">{{item.duration}}</div>-->
+                  
+                <img class="img_vertical"  src="{{item.orientation[0].image == undefined || item.orientation[0].image.length == 0 ? defaultAssetImage :  item.orientation[0].image}}" style="display: inline;" width="100%;">
+                <div class="content">
+                  <h1>{{item.orientation[0].title}}</h1>
+                  <p class="js_assdeselip assdeselip f13">
+                    {{item.orientation[0].description}}
+                  </p>
+                  <span class="duration f13">Duration: {{item.duration}} hrs </span>
+                  <div class="watchnowbutton " style="margin-top:5px;">
+                      WATCH NOW    
+                  </div> 
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>	<div class="clearfix"></div><br>
+    </div>
+  </div>

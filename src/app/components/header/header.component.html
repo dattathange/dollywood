@@ -1,0 +1,80 @@
+<nav id="header" class="navbar navbar-default  bootsnav pos_rel  min_height  on no-full">
+    <div class="container-fluid prox">
+        
+        <app-navigation></app-navigation>
+
+        
+
+        <div>
+            <nav role="navigation" aria-labelledby="block-dollywood-account-menu-menu" id="block-dollywood-account-menu">
+
+                <!--<h2 class="visually-hidden" id="block-dollywood-account-menu-menu">User account menu</h2>-->
+
+                <div class="attr-nav">
+                    <ul>
+                        <li id="lang-drp">
+                            <div class="language-drp" data-toggle="dropdown" dropdown [dropdownToggle]="false">ENG <span></span></div>
+                            <div class="drp">
+                                <span></span>
+                                <ul>
+                                    <li class="bb active">ENG</li>
+                                    <li>HINDI</li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="search" style="display:none;">
+                            <img src="./assets/images/search.png" class="img-responsive"></li>
+                        <li class="dropdown">
+                            <a dropdown-open class="dropdown-toggle" data-toggle="dropdown" dropdown [dropdownToggle]="false">
+                                <img src="./assets/images/profile.png" class="img-responsive user_drop marginMinus">
+                            </a>
+                        </li>
+
+                        <div class="showme drp userDrp">
+                            <span></span>
+                            <ul>
+                                <!--<li *ngFor="let menuItem of profileItems">
+                                    <a routerLink="{{menuItem.url}}">{{menuItem.displayText}}</a>
+                                </li>-->
+                                <li *ngIf="!isUserLoggedIn; else LoggedIn">
+                                    <a routerLink="/user/login">Login</a>
+                                </li>
+                                <ng-template #LoggedIn>
+                                    <li class="bb">
+                                        <a routerLink="/user/favorites"> Favourites</a> <!--<i class="fa fa-heart"></i>-->
+                                    </li>
+                                    <li class="bb">
+                                        <a routerLink="/user/watchlist"> Watch List</a> <!--<i class="fa fa-eye"></i>-->
+                                    </li>
+                                    <li class="bb">
+                                        <a routerLink="/user/account"> My Account</a> <!--<i class="fa fa-user"></i>-->
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" (click)="logOutClicked()" > Sign Out</a> <!--<i class="fa fa-sign-out"></i>-->
+                                    </li>
+                                </ng-template>
+                                
+                            </ul>
+                        </div>
+
+                            
+                            
+                    </ul>
+                </div>
+            </nav>
+
+        </div>
+
+
+    </div>
+</nav>
+
+<div class="logoutPopup" [hidden]="logOutButtonClicked == false">
+    <img src="./assets/images/logo_2.png" alt="Home" class="logoutLogo">
+    <span class="logoutText text-center">Are you sure you want to log out ?</span><br/>
+    <div class="logoutSet">
+        <button class="logoutButton  logCancel logYes" (click)="cancelLogout()">Cancel</button>
+        <button  class="logoutButton logYes" (click)="confirmLogout()">Yes</button>
+    </div>
+        <div class="clearfix"></div>
+</div>

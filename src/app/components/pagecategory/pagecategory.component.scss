@@ -1,0 +1,16 @@
+.second-carousel {
+    /deep/
+    .owl-nav {
+        display: none;
+    }
+}
+.margin10 {
+    margin-bottom: 0px;
+}
+.flex-item {
+    display: flex;
+    justify-content: space-between;
+}
+.flex-item .views {
+    margin-left: 10px;
+}
